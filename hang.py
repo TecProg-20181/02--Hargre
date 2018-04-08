@@ -48,10 +48,8 @@ def getGuessedWord(secretWord, lettersGuessed):
     return guessed
 
 def getAvailableLetters():
-    import string
     # 'abcdefghijklmnopqrstuvwxyz'
     available = string.ascii_lowercase
-
 
     return available
 
