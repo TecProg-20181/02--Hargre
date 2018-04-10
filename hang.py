@@ -70,22 +70,17 @@ def hangman(secretWord):
 
         letter = input('Please guess a letter: ')
         if letter in lettersGuessed:
-            guessed = getGuessedWord(secretWord, lettersGuessed)
-
-            print('Oops! You have already guessed that letter: ', guessed)
+            print('Oops! You have already guessed that letter: ')
         elif letter in secretWord:
             lettersGuessed.append(letter)
-
-            guessed = getGuessedWord(secretWord, lettersGuessed)
-
-            print('Good Guess: ', guessed)
+            print('Good Guess: ')
         else:
             guesses -=1
             lettersGuessed.append(letter)
+            print('Oops! That letter is not in my word: ')
 
-            guessed = getGuessedWord(secretWord, lettersGuessed)
-
-            print('Oops! That letter is not in my word: ',  guessed)
+        guessed = getGuessedWord(secretWord, lettersGuessed)
+        print(guessed)
         print('------------')
 
     else:
