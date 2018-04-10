@@ -33,7 +33,7 @@ def isWordGuessed(secretWord, lettersGuessed):
 
 def getGuessedWord(secretWord, lettersGuessed):
     guessed = ''
-    
+
     for letter in secretWord:
         if letter in lettersGuessed:
             guessed += letter
@@ -86,7 +86,7 @@ def hangman(wordlist):
             lettersGuessed.append(letter)
             print('Good Guess: ')
         else:
-            guesses -=1
+            guesses -= 1
             lettersGuessed.append(letter)
             print('Oops! That letter is not in my word: ')
 
@@ -94,14 +94,13 @@ def hangman(wordlist):
         print(guessed)
         print('------------')
 
+    if isWordGuessed(secretWord, lettersGuessed):
+        print('Congratulations, you won!')
     else:
-        if isWordGuessed(secretWord, lettersGuessed):
-            print('Congratulations, you won!')
-        else:
-            print('Sorry, you ran out of guesses. The word was ', secretWord, '.')
+        print('Sorry, you ran out of guesses. The word was ', secretWord, '.')
 
+def main():
+    wordlist = loadWords()
+    hangman(wordlist)
 
-
-
-wordlist = loadWords()
-hangman(wordlist)
+main()
