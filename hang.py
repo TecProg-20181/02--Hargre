@@ -16,8 +16,11 @@ def loadWords():
     # wordlist: list of strings
     wordlist = str.split(line)
     print("  ", len(wordlist), "words loaded.")
-    return random.choice(wordlist)
+    return wordlist
 
+def getRandomWord(wordlist):
+    word = random.choice(wordlist).lower()
+    return word
 
 def isWordGuessed(secretWord, lettersGuessed):
     for letter in secretWord:
@@ -53,8 +56,8 @@ def getAmountOfUniqueLetters(secretWord):
     differentLetters = set(secretWord)
     return len(differentLetters)
 
-def hangman(secretWord):
-
+def hangman(wordlist):
+    secretWord = getRandomWord(wordlist)
     guesses = 8
     lettersGuessed = []
     print('Welcome to the game, Hangam!')
@@ -92,5 +95,5 @@ def hangman(secretWord):
 
 
 
-secretWord = loadWords().lower()
-hangman(secretWord)
+wordlist = loadWords()
+hangman(wordlist)
