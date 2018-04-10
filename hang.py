@@ -56,10 +56,18 @@ def getAmountOfUniqueLetters(secretWord):
     differentLetters = set(secretWord)
     return len(differentLetters)
 
+def isValidWord(secretWord, guesses):
+    hasMoreGuessesThanUniqueLetters = guesses > getAmountOfUniqueLetters(secretWord)
+    return hasMoreGuessesThanUniqueLetters
+
 def hangman(wordlist):
     secretWord = getRandomWord(wordlist)
     guesses = 8
     lettersGuessed = []
+
+    while not isValidWord(secretWord, guesses):
+        secretWord = getRandomWord(wordlist)
+
     print('Welcome to the game, Hangam!')
     print('I am thinking of a word that is', len(secretWord), ' letters long.')
     print('The word has', getAmountOfUniqueLetters(secretWord), 'different letters.')
